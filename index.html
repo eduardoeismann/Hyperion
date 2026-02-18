@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hyperion</title>
+
+    <style>
+      :root{
+        --bg: #0B3D2E;
+        --gold: #C6A75E;
+        --text: rgba(198,167,94,0.96);
+      }
+
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--gold);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      }
+
+      .wrap {
+        width: min(900px, 92vw);
+        text-align: center;
+        padding: 12vh 0;
+        margin-bottom: 30%;
+      }
+
+      .logo {
+        width: min(520px, 72vw);
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(10px);
+        filter: drop-shadow(0 10px 24px rgba(0,0,0,0.25));
+        transition:
+          opacity 3300ms ease,
+          transform 3300ms ease;
+      }
+
+      .tagline {
+        margin-top: 18px;
+        font-size: clamp(14px, 2.0vw, 18px);
+        letter-spacing: 0.10em;
+        text-transform: uppercase;
+        color: var(--text);
+        opacity: 0;
+        transform: translateY(10px);
+        transition:
+          opacity 2000ms ease,
+          transform 2000ms ease;
+      }
+
+      .is-ready .logo {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .is-ready .tagline {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 700ms;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .logo, .tagline { transition: none; transform: none; }
+        .logo, .tagline { opacity: 1; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="wrap" aria-label="Hyperion">
+      <img class="logo" src="images/Hyperion.png" alt="Hyperion" />
+      <div class="tagline">Estruturas que sustentam crescimento</div>
+    </main>
+
+    <script>
+      window.addEventListener("load", () => {
+        setTimeout(() => document.body.classList.add("is-ready"), 250);
+      });
+    </script>
+  </body>
+</html>
