@@ -10,11 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
     <title>Hyperion</title>
-
   </head>
 
   <body>
-    <!-- SPLASH -->
+    <!-- splash -->
     <div class="splash" id="splash" aria-label="Hyperion - Entrada">
       <main class="wrap">
         <img class="logo" src="images/Hyperion.png" alt="Hyperion" />
@@ -22,7 +21,7 @@
       </main>
     </div>
 
-    <!-- APP -->
+    <!-- main -->
     <div class="app" id="app" aria-label="Hyperion - Conteúdo">
       <nav class="menu" aria-label="Menu">
         <a href="#home" data-target="home">Home</a>
@@ -34,7 +33,7 @@
       </nav>
 
       <div class="stage">
-        <!-- BLOCO 1 -->
+        <!-- bloco 1 -->
         <section class="panel is-active" id="home" data-panel>
           <div>
             <div class="kicker">Hyperion</div>
@@ -46,19 +45,19 @@
           </div>
         </section>
 
-        <!-- BLOCO 2 -->
+        <!-- bloco 2 -->
         <section class="panel" id="manifesto" data-panel>
           <div>
             <div class="kicker">Posicionamento</div>
             <h2>Estruturas que sustentam crescimento</h2>
             <p>
               Crescer sem base custa caro. Sistemas frágeis não acompanham ambição.
-              Estrutura não é detalhe — é fundamento.
+              Estrutura não é detalhe, é fundamento.
             </p>
           </div>
         </section>
 
-        <!-- BLOCO 3 -->
+        <!-- bloco 3 -->
         <section class="panel" id="o-que-fazemos" data-panel>
           <div>
             <div class="kicker">O que fazemos</div>
@@ -68,7 +67,7 @@
           </div>
         </section>
 
-        <!-- BLOCO 4 -->
+        <!-- bloco 4 -->
         <section class="panel" id="como-trabalhamos" data-panel>
           <div>
             <div class="kicker">Método</div>
@@ -77,7 +76,7 @@
           </div>
         </section>
 
-        <!-- BLOCO 5 -->
+        <!-- bloco 5 -->
         <section class="panel" id="para-quem" data-panel>
           <div>
             <div class="kicker">Fit</div>
@@ -89,7 +88,7 @@
           </div>
         </section>
 
-        <!-- BLOCO 6 -->
+        <!-- bloco 6 -->
         <section class="panel" id="contato" data-panel>
           <div>
             <div class="kicker">Contato</div>
@@ -103,19 +102,16 @@
 
     <script>
       const INITIAL_DELAY_MS = 250;
-
       const LOGO_IN_MS = 3000;
       const TAGLINE_DELAY_MS = 700;
       const TAGLINE_IN_MS = 2000;
 
-      // Quando ambos terminam de aparecer:
       const SPLASH_VISIBLE_AT_MS = Math.max(
         INITIAL_DELAY_MS + LOGO_IN_MS,
         INITIAL_DELAY_MS + TAGLINE_DELAY_MS + TAGLINE_IN_MS
       );
 
       const HOLD_MS = 300;
-
       const EXIT_MS = 900;
 
       const splash = document.getElementById("splash");
@@ -152,7 +148,7 @@
       window.addEventListener("load", () => {
         setTimeout(() => document.body.classList.add("is-ready"), INITIAL_DELAY_MS);
 
-        // Delay de entrada
+        // delay
         const totalUntilExitStart = SPLASH_VISIBLE_AT_MS + HOLD_MS;
 
         setTimeout(() => {
@@ -160,7 +156,7 @@
         }, totalUntilExitStart);
 
         setTimeout(() => {
-          // remove splash do fluxo e mostra app
+          // rm splash
           splash.style.display = "none";
           document.body.classList.add("app-ready");
           initRoute();
