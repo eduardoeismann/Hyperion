@@ -1,0 +1,228 @@
+:root{
+  /* Paleta */
+  --bg: #0B3D2E;
+  --g2: #1F5C45;
+  --g3: #6E8F7A;
+  --char: #1C1F1D;
+  --sand: #D9CBB3;
+  --gold: #C6A75E;
+  --text: var(--sand);
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--gold);
+  overflow: hidden;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.splash {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  z-index: 50;
+}
+
+.wrap {
+  width: min(900px, 92vw);
+  text-align: center;
+  padding: 12vh 0;
+  margin-bottom: 30%;
+}
+
+.logo {
+  width: min(520px, 72vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(10px);
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.25));
+  transition:
+    opacity 3300ms ease,
+    transform 3300ms ease;
+}
+
+.tagline {
+  margin-top: 18px;
+  font-size: clamp(14px, 2.0vw, 18px);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 3000ms ease,
+    transform 3000ms ease;
+}
+
+.is-ready .logo {
+  opacity: 1;
+  transform: translateY(0);
+}
+.is-ready .tagline {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 700ms;
+}
+
+.is-exiting .logo,
+.is-exiting .tagline {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 900ms ease,
+    transform 900ms ease;
+}
+
+.app {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 700ms ease;
+}
+.app-ready .app {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 0 16px;
+  z-index: 10;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 61, 46, 0.92),
+    rgba(11, 61, 46, 0.55),
+    rgba(11, 61, 46, 0)
+  );
+
+  backdrop-filter: blur(6px);
+}
+
+.menu a {
+  color: rgba(217, 203, 179, 0.92);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 10px;
+  border-radius: 999px;
+  transition: color 220ms ease, background 220ms ease;
+}
+
+.menu a:hover {
+  color: var(--gold);
+  background: rgba(31, 92, 69, 0.55);
+}
+
+.menu a[aria-current="page"] {
+  color: var(--gold);
+  background: rgba(31, 92, 69, 0.75);
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  padding-top: 64px;
+  display: grid;
+  place-items: center;
+}
+
+.panel {
+  width: min(980px, 92vw);
+  min-height: calc(100vh - 64px);
+  display: none;
+  align-content: center;
+  padding: 2vh 0 5vh;
+}
+
+.panel.is-active {
+  display: grid;
+  animation: panelIn 520ms ease both;
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.kicker {
+  color: rgba(110, 143, 122, 0.95);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+h1, h2 {
+  margin: 0 0 14px 0;
+  color: var(--sand);
+  letter-spacing: 0.02em;
+  line-height: 1.06;
+}
+
+h1 { font-size: clamp(28px, 5vw, 46px); }
+h2 { font-size: clamp(22px, 3.6vw, 34px); }
+
+p {
+  margin: 0 0 12px 0;
+  max-width: 68ch;
+  color: var(--sand);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.accent {
+  color: var(--gold);
+}
+
+.cta {
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(31, 92, 69, 0.75);
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-size: 12px;
+  transition: transform 220ms ease, background 220ms ease;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  background: rgba(31, 92, 69, 0.92);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo, .tagline { transition: none; transform: none; opacity: 1; }
+  .is-exiting .logo, .is-exiting .tagline { transition: none; }
+  .app { transition: none; opacity: 1; pointer-events: auto; }
+  .panel.is-active { animation: none; }
+}
+
+h1, h2 {
+  font-family: 'Cinzel', serif;
+}
+
+p {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}

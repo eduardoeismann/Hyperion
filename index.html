@@ -3,85 +3,178 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="styles.css">
+
     <title>Hyperion</title>
 
-    <style>
-      :root{
-        --bg: #0B3D2E;
-        --gold: #C6A75E;
-        --text: rgba(198,167,94,0.96);
-      }
-
-      html, body { height: 100%; }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--gold);
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      }
-
-      .wrap {
-        width: min(900px, 92vw);
-        text-align: center;
-        padding: 12vh 0;
-        margin-bottom: 30%;
-      }
-
-      .logo {
-        width: min(520px, 72vw);
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        opacity: 0;
-        transform: translateY(10px);
-        filter: drop-shadow(0 10px 24px rgba(0,0,0,0.25));
-        transition:
-          opacity 3300ms ease,
-          transform 3300ms ease;
-      }
-
-      .tagline {
-        margin-top: 18px;
-        font-size: clamp(14px, 2.0vw, 18px);
-        letter-spacing: 0.10em;
-        text-transform: uppercase;
-        color: var(--text);
-        opacity: 0;
-        transform: translateY(10px);
-        transition:
-          opacity 2000ms ease,
-          transform 2000ms ease;
-      }
-
-      .is-ready .logo {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .is-ready .tagline {
-        opacity: 1;
-        transform: translateY(0);
-        transition-delay: 700ms;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .logo, .tagline { transition: none; transform: none; }
-        .logo, .tagline { opacity: 1; }
-      }
-    </style>
   </head>
 
   <body>
-    <main class="wrap" aria-label="Hyperion">
-      <img class="logo" src="images/Hyperion.png" alt="Hyperion" />
-      <div class="tagline">Estruturas que sustentam crescimento</div>
-    </main>
+    <!-- SPLASH -->
+    <div class="splash" id="splash" aria-label="Hyperion - Entrada">
+      <main class="wrap">
+        <img class="logo" src="images/Hyperion.png" alt="Hyperion" />
+        <div class="tagline">Estruturas que sustentam crescimento</div>
+      </main>
+    </div>
+
+    <!-- APP -->
+    <div class="app" id="app" aria-label="Hyperion - Conteúdo">
+      <nav class="menu" aria-label="Menu">
+        <a href="#home" data-target="home">Home</a>
+        <a href="#manifesto" data-target="manifesto">Manifesto</a>
+        <a href="#o-que-fazemos" data-target="o-que-fazemos">O que fazemos</a>
+        <a href="#como-trabalhamos" data-target="como-trabalhamos">Como trabalhamos</a>
+        <a href="#para-quem" data-target="para-quem">Para quem</a>
+        <a href="#contato" data-target="contato">Contato</a>
+      </nav>
+
+      <div class="stage">
+        <!-- BLOCO 1 -->
+        <section class="panel is-active" id="home" data-panel>
+          <div>
+            <div class="kicker">Hyperion</div>
+            <h1>Escalar é consequência.<br/>Estrutura é decisão.</h1>
+            <p>
+              A Hyperion é uma consultoria de software focada em <span class="accent">engenharia, arquitetura e sustentação</span>.
+              Pouco ruído. Decisão técnica com propósito.
+            </p>
+          </div>
+        </section>
+
+        <!-- BLOCO 2 -->
+        <section class="panel" id="manifesto" data-panel>
+          <div>
+            <div class="kicker">Posicionamento</div>
+            <h2>Estruturas que sustentam crescimento</h2>
+            <p>
+              Crescer sem base custa caro. Sistemas frágeis não acompanham ambição.
+              Estrutura não é detalhe — é fundamento.
+            </p>
+          </div>
+        </section>
+
+        <!-- BLOCO 3 -->
+        <section class="panel" id="o-que-fazemos" data-panel>
+          <div>
+            <div class="kicker">O que fazemos</div>
+            <h2>Arquitetura, escala e longevidade</h2>
+            <p>Projetamos e ajustamos estruturas para evoluir com segurança, suportar mudanças e durar no tempo.</p>
+            <p>O foco é reduzir fragilidade, retrabalho e decisões que geram “juros técnicos”.</p>
+          </div>
+        </section>
+
+        <!-- BLOCO 4 -->
+        <section class="panel" id="como-trabalhamos" data-panel>
+          <div>
+            <div class="kicker">Método</div>
+            <h2>Poucos projetos. Envolvimento direto.</h2>
+            <p>Contexto real, decisões claras e execução com disciplina. Sem improviso. Sem atalhos.</p>
+          </div>
+        </section>
+
+        <!-- BLOCO 5 -->
+        <section class="panel" id="para-quem" data-panel>
+          <div>
+            <div class="kicker">Fit</div>
+            <h2>Para times que levam estrutura a sério</h2>
+            <p>
+              Para empresas e líderes que entendem que escala não é só volume:
+              crescimento exige preparo e decisão técnica é decisão estratégica.
+            </p>
+          </div>
+        </section>
+
+        <!-- BLOCO 6 -->
+        <section class="panel" id="contato" data-panel>
+          <div>
+            <div class="kicker">Contato</div>
+            <h2>Vamos conversar.</h2>
+            <p>Contato direto, sem burocracia. Conte seu contexto e o que precisa ser sustentado no longo prazo.</p>
+            <a class="cta" href="mailto:contato@hyperionroot.com">contato@hyperionroot.com</a>
+          </div>
+        </section>
+      </div>
+    </div>
 
     <script>
+      const INITIAL_DELAY_MS = 250;
+
+      const LOGO_IN_MS = 3000;
+      const TAGLINE_DELAY_MS = 700;
+      const TAGLINE_IN_MS = 2000;
+
+      // Quando ambos terminam de aparecer:
+      const SPLASH_VISIBLE_AT_MS = Math.max(
+        INITIAL_DELAY_MS + LOGO_IN_MS,
+        INITIAL_DELAY_MS + TAGLINE_DELAY_MS + TAGLINE_IN_MS
+      );
+
+      const HOLD_MS = 300;
+
+      const EXIT_MS = 900;
+
+      const splash = document.getElementById("splash");
+      const app = document.getElementById("app");
+
+      const links = Array.from(document.querySelectorAll(".menu a[data-target]"));
+      const panels = Array.from(document.querySelectorAll("[data-panel]"));
+
+      function setActive(targetId) {
+        panels.forEach(p => p.classList.toggle("is-active", p.id === targetId));
+
+        links.forEach(a => {
+          const isCurrent = a.dataset.target === targetId;
+          if (isCurrent) a.setAttribute("aria-current", "page");
+          else a.removeAttribute("aria-current");
+        });
+
+        history.replaceState(null, "", "#" + targetId);
+      }
+
+      links.forEach(a => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          setActive(a.dataset.target);
+        });
+      });
+
+      function initRoute() {
+        const hash = (location.hash || "#home").replace("#", "");
+        const exists = panels.some(p => p.id === hash);
+        setActive(exists ? hash : "home");
+      }
+
       window.addEventListener("load", () => {
-        setTimeout(() => document.body.classList.add("is-ready"), 250);
+        setTimeout(() => document.body.classList.add("is-ready"), INITIAL_DELAY_MS);
+
+        // Delay de entrada
+        const totalUntilExitStart = SPLASH_VISIBLE_AT_MS + HOLD_MS;
+
+        setTimeout(() => {
+          document.body.classList.add("is-exiting");
+        }, totalUntilExitStart);
+
+        setTimeout(() => {
+          // remove splash do fluxo e mostra app
+          splash.style.display = "none";
+          document.body.classList.add("app-ready");
+          initRoute();
+        }, totalUntilExitStart + EXIT_MS);
+      });
+
+      window.addEventListener("keydown", (e) => {
+        const current = links.findIndex(a => a.getAttribute("aria-current") === "page");
+        if (current === -1) return;
+
+        if (e.key === "ArrowRight") {
+          const next = Math.min(current + 1, links.length - 1);
+          setActive(links[next].dataset.target);
+        }
+        if (e.key === "ArrowLeft") {
+          const prev = Math.max(current - 1, 0);
+          setActive(links[prev].dataset.target);
+        }
       });
     </script>
   </body>
