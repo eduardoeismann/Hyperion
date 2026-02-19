@@ -162,17 +162,16 @@ body {
 .stage {
   position: absolute;
   inset: 0;
-  /* padding-top: 64px; */
+  padding-top: 64px;
   display: grid;
-  place-items: center;
+  place-items: start center;
 }
 
 .panel {
-  width: min(980px, 92vw);
-  min-height: calc(100vh - 64px);
+  min-height: auto;
   display: none;
-  align-content: center;
-  /* padding: 2vh 0 5vh; */
+  align-content: start;
+  padding-top: 7vh;
 }
 
 .panel.is-active {
