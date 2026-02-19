@@ -153,6 +153,18 @@ body {
   border-radius: 999px;
 }
 
+.menu::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(1100px, 92vw);
+  height: 1px;
+  background-color: var(--gold);
+  opacity: 0.85;
+}
+
 @media (max-width: 640px) {
   .menu-logo img {
     height: 22px;
@@ -283,4 +295,34 @@ p {
 
 .title-gold {
   color: var(--gold);
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.footer-line {
+  width: min(1100px, 92vw);
+  height: 1px;
+  background-color: var(--gold);
+  opacity: 0.85;
+  margin-bottom: 14px;
+}
+
+.footer-content {
+  display: flex;
+  gap: 14px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(217, 203, 179, 0.85);
+  font-family: 'Cinzel', serif;
 }
