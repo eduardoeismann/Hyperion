@@ -196,6 +196,16 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+.panel {
+  padding-inline: clamp(18px, 5vw, 28px);
+}
+
+.panel > div {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
 .kicker {
   color: rgba(110, 143, 122, 0.95);
   letter-spacing: 0.18em;
@@ -283,7 +293,7 @@ p {
   .menu a {
     flex: 0 0 auto;
     font-size: 11px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.10em;
     padding: 9px 10px;
   }
 
@@ -291,6 +301,11 @@ p {
     -webkit-mask-image: linear-gradient(to right, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
             mask-image: linear-gradient(to right, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
   }
+}
+
+.menu::after,
+.footer-line {
+  width: min(1100px, calc(100vw - 32px));
 }
 
 .title-gold {
@@ -325,4 +340,32 @@ p {
   text-transform: uppercase;
   color: rgba(217, 203, 179, 0.85);
   font-family: 'Cinzel', serif;
+}
+
+.footer {
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding-inline: clamp(16px, 5vw, 28px);
+}
+
+.footer-line {
+  width: min(1100px, 92vw);
+}
+
+.footer-content {
+  width: 100%;
+  max-width: 1100px;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+
+@media (max-width: 640px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 6px;
+    letter-spacing: 0.10em;
+  }
 }
