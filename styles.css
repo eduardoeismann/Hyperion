@@ -8,7 +8,12 @@
   --text: var(--sand);
 }
 
-html, body { height: 100%; }
+/* trava qualquer "vazamento" horizontal */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -17,6 +22,7 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
+/* SPLASH */
 .splash {
   position: fixed;
   inset: 0;
@@ -41,9 +47,7 @@ body {
   opacity: 0;
   transform: translateY(10px);
   filter: drop-shadow(0 10px 24px rgba(0,0,0,0.25));
-  transition:
-    opacity 3300ms ease,
-    transform 3300ms ease;
+  transition: opacity 3300ms ease, transform 3300ms ease;
 }
 
 .tagline {
@@ -54,48 +58,40 @@ body {
   color: var(--text);
   opacity: 0;
   transform: translateY(10px);
-  transition:
-    opacity 3000ms ease,
-    transform 3000ms ease;
+  transition: opacity 3000ms ease, transform 3000ms ease;
 }
 
-.is-ready .logo {
-  opacity: 1;
-  transform: translateY(0);
-}
-.is-ready .tagline {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 700ms;
-}
+.is-ready .logo { opacity: 1; transform: translateY(0); }
+.is-ready .tagline { opacity: 1; transform: translateY(0); transition-delay: 700ms; }
 
 .is-exiting .logo,
 .is-exiting .tagline {
   opacity: 0;
   transform: translateY(-6px);
-  transition:
-    opacity 900ms ease,
-    transform 900ms ease;
+  transition: opacity 900ms ease, transform 900ms ease;
 }
 
+/* APP */
 .app {
   position: fixed;
   inset: 0;
   opacity: 0;
   pointer-events: none;
   transition: opacity 700ms ease;
+  overflow-x: hidden;
 }
+
 .app-ready .app {
   opacity: 1;
   pointer-events: auto;
 }
 
+/* MENU (Desktop/base) */
 .menu {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 64px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,6 +107,23 @@ body {
   );
 
   backdrop-filter: blur(6px);
+
+  /* IMPORTANTE: remove o "menu rolável" no Desktop/base */
+  overflow: hidden;
+  white-space: normal;
+}
+
+/* linha dourada abaixo do menu */
+.menu::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(1100px, calc(100vw - 32px));
+  height: 1px;
+  background-color: var(--gold);
+  opacity: 0.85;
 }
 
 .menu a {
@@ -134,7 +147,7 @@ body {
   background: rgba(31, 92, 69, 0.75);
 }
 
-/* icon in the home menu */
+/* ícone home */
 .menu-logo {
   padding: 6px 10px;
   display: flex;
@@ -153,37 +166,32 @@ body {
   border-radius: 999px;
 }
 
-.menu::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: min(1100px, 92vw);
-  height: 1px;
-  background-color: var(--gold);
-  opacity: 0.85;
-}
-
-@media (max-width: 640px) {
-  .menu-logo img {
-    height: 22px;
-  }
-}
-
+/* STAGE / PANELS */
 .stage {
   position: absolute;
   inset: 0;
   padding-top: 64px;
   display: grid;
   place-items: start center;
+  overflow-x: hidden;
 }
 
 .panel {
   min-height: auto;
   display: none;
   align-content: start;
+
+  /* seu ajuste que funcionou */
   padding-top: 7vh;
+
+  /* garante respiro lateral sempre */
+  padding-inline: clamp(18px, 5vw, 28px);
+}
+
+.panel > div {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 .panel.is-active {
@@ -194,16 +202,6 @@ body {
 @keyframes panelIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
-}
-
-.panel {
-  padding-inline: clamp(18px, 5vw, 28px);
-}
-
-.panel > div {
-  width: 100%;
-  max-width: 980px;
-  margin: 0 auto;
 }
 
 .kicker {
@@ -232,9 +230,7 @@ p {
   line-height: 1.7;
 }
 
-.accent {
-  color: var(--gold);
-}
+.accent { color: var(--gold); }
 
 .cta {
   margin-top: 22px;
@@ -257,75 +253,27 @@ p {
   background: rgba(31, 92, 69, 0.92);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .logo, .tagline { transition: none; transform: none; opacity: 1; }
-  .is-exiting .logo, .is-exiting .tagline { transition: none; }
-  .app { transition: none; opacity: 1; pointer-events: auto; }
-  .panel.is-active { animation: none; }
-}
-
-h1, h2, .kicker, .menu a, .tagline {
-  font-family: 'Cinzel', serif;
-}
-
-p {
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
-@media (max-width: 640px) {
-  .menu {
-    justify-content: flex-start;
-    gap: 10px;
-    padding: 0 12px;
-    height: 58px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-
-    scrollbar-width: none;
-  }
-  .menu::-webkit-scrollbar {
-    display: none;
-  }
-
-  .menu a {
-    flex: 0 0 auto;
-    font-size: 11px;
-    letter-spacing: 0.10em;
-    padding: 9px 10px;
-  }
-
-  .menu {
-    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
-  }
-}
-
-.menu::after,
-.footer-line {
-  width: min(1100px, calc(100vw - 32px));
-}
-
-.title-gold {
-  color: var(--gold);
-}
-
+/* FOOTER */
 .footer {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
+
   padding: 24px 0 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* você já usa isso para não "atrapalhar" cliques */
   pointer-events: none;
+
+  /* evita footer colar na borda em telas estreitas */
+  padding-inline: clamp(16px, 5vw, 28px);
 }
 
 .footer-line {
-  width: min(1100px, 92vw);
+  width: min(1100px, calc(100vw - 32px));
   height: 1px;
   background-color: var(--gold);
   opacity: 0.85;
@@ -333,36 +281,77 @@ p {
 }
 
 .footer-content {
-  display: flex;
-  gap: 14px;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(217, 203, 179, 0.85);
-  font-family: 'Cinzel', serif;
-}
-
-.footer {
-  left: 0;
-  right: 0;
-  width: 100%;
-  padding-inline: clamp(16px, 5vw, 28px);
-}
-
-.footer-line {
-  width: min(1100px, 92vw);
-}
-
-.footer-content {
   width: 100%;
   max-width: 1100px;
+  display: flex;
   justify-content: center;
   text-align: center;
   flex-wrap: wrap;
   row-gap: 6px;
+
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(217, 203, 179, 0.85);
 }
 
+/* Fonts */
+h1, h2, .kicker, .menu a, .tagline, .footer-content {
+  font-family: 'Cinzel', serif;
+}
+
+p {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.title-gold { color: var(--gold); }
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .logo, .tagline { transition: none; transform: none; opacity: 1; }
+  .is-exiting .logo, .is-exiting .tagline { transition: none; }
+  .app { transition: none; opacity: 1; pointer-events: auto; }
+  .panel.is-active { animation: none; }
+}
+
+/* ✅ MOBILE ONLY: menu 100% visível sem arrastar */
 @media (max-width: 640px) {
+
+  /* menu vira 2 linhas e NÃO rola pro lado */
+  .menu {
+    height: auto;
+    padding: 10px 12px;
+
+    justify-content: center;
+    flex-wrap: wrap;
+
+    column-gap: 10px;
+    row-gap: 10px;
+
+    overflow: hidden;
+    white-space: normal;
+
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+
+  /* garante que os itens não “estiquem” além do viewport */
+  .menu a {
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    padding: 9px 12px;
+    max-width: 100%;
+  }
+
+  .menu-logo img {
+    height: 22px;
+  }
+
+  /* como o menu ficou mais alto, empurra o conteúdo */
+  .stage {
+    padding-top: 112px;
+  }
+
   .footer-content {
     flex-direction: column;
     gap: 6px;
