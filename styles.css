@@ -296,7 +296,7 @@ p {
 }
 
 /* Fonts */
-h1, h2, .kicker, .menu a, .tagline, .footer-content {
+h1, h2, .kicker, .menu a, .tagline, .footer-content, .font-cinzel {
   font-family: 'Cinzel', serif;
 }
 
@@ -357,4 +357,12 @@ p {
     gap: 6px;
     letter-spacing: 0.10em;
   }
+}
+
+.text-title-space {
+  margin-top: 30px;
+}
+
+.text-space {
+  margin-top: 20px;
 }
