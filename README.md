@@ -1,102 +1,8 @@
 # Hyperion
-**Estruturas que sustentam crescimento.**  
 **Structures that sustain growth.**
+**Estruturas que sustentam crescimento.**  
 
-**Language / Idioma:** [Português](#português) · [English](#english)
-
----
-
-## Português
-
-### Hyperion
-**Estruturas que sustentam crescimento.**
-
-Site institucional da Hyperion — consultoria de software focada em engenharia, arquitetura e sustentação de sistemas ao longo do tempo.
-
-Este repositório contém a base front-end da marca, desenvolvida com foco em clareza estrutural, minimalismo visual e decisões técnicas conscientes.
-
----
-
-## Sobre a Hyperion
-
-A Hyperion parte de uma premissa simples:
-
-> Escalar é consequência.  
-> Estrutura é decisão.
-
-A marca atua apoiando empresas e líderes que entendem que crescimento sustentável exige base técnica sólida, arquitetura bem pensada e execução disciplinada.
-
-Pouco ruído.  
-Decisão técnica com propósito.
-
----
-
-## Stack
-
-- **HTML5**
-- **CSS3** (Custom Properties / CSS Variables)
-- **JavaScript Vanilla**
-- **Tipografia**
-  - Cinzel (títulos, menu e identidade)
-  - Inter (texto corrido)
-
-Não há frameworks ou dependências de build.
-
----
-
-## Estrutura do Projeto
-├── index.html
-├── styles.css
-├── images/
-│ ├── Hyperion.png
-│ └── Hyperion_sec.png
-
----
-
-## Decisões de Design
-
-- Uso exclusivo do verde escuro `#0B3D2E` como background principal.
-- Dourado (`#C6A75E`) aplicado apenas em elementos estruturais e de destaque.
-- Layout de baixa densidade de informação, com amplo respiro visual.
-- Separações visuais sutis através de linhas douradas (menu e footer).
-- Abordagem mobile-first com controle rigoroso de overflow horizontal.
-- Animações leves e intencionais, evitando distrações.
-
-O objetivo não é impressionar pelo volume, mas pela estrutura.
-
----
-
-## Execução Local
-
-Não há etapas de build ou dependências.
-
-Basta abrir o arquivo `index.html` diretamente no navegador.
-
----
-
-## Status do Projeto
-
-- Identidade visual consolidada
-- Estrutura do site finalizada
-- Responsividade ajustada para desktop e mobile
-- Base pronta para refinamento de conteúdo e SEO
-
----
-
-## Licença
-
-Este projeto é de uso institucional da Hyperion.  
-Consulte antes de reutilizar partes do design ou identidade visual.
-
----
-
-© Hyperion — Estruturas que sustentam crescimento.
-
-
-
-
-
-
+**Language / Idioma:** [English](#english) · [Português](#português)
 
 ---
 
@@ -185,3 +91,93 @@ Please consult before reusing design or brand elements.
 ---
 
 © Hyperion — Structures that sustain growth.
+
+
+
+---
+
+## Português
+
+### Hyperion
+**Estruturas que sustentam crescimento.**
+
+Site institucional da Hyperion — consultoria de software focada em engenharia, arquitetura e sustentação de sistemas ao longo do tempo.
+
+Este repositório contém a base front-end da marca, desenvolvida com foco em clareza estrutural, minimalismo visual e decisões técnicas conscientes.
+
+---
+
+## Sobre a Hyperion
+
+A Hyperion parte de uma premissa simples:
+
+> Escalar é consequência.  
+> Estrutura é decisão.
+
+A marca atua apoiando empresas e líderes que entendem que crescimento sustentável exige base técnica sólida, arquitetura bem pensada e execução disciplinada.
+
+Pouco ruído.  
+Decisão técnica com propósito.
+
+---
+
+## Stack
+
+- **HTML5**
+- **CSS3** (Custom Properties / CSS Variables)
+- **JavaScript Vanilla**
+- **Tipografia**
+  - Cinzel (títulos, menu e identidade)
+  - Inter (texto corrido)
+
+Não há frameworks ou dependências de build.
+
+---
+
+## Estrutura do Projeto
+├── index.html
+├── styles.css
+├── images/
+│ ├── Hyperion.png
+│ └── Hyperion_sec.png
+
+---
+
+## Decisões de Design
+
+- Uso exclusivo do verde escuro `#0B3D2E` como background principal.
+- Dourado (`#C6A75E`) aplicado apenas em elementos estruturais e de destaque.
+- Layout de baixa densidade de informação, com amplo respiro visual.
+- Separações visuais sutis através de linhas douradas (menu e footer).
+- Abordagem mobile-first com controle rigoroso de overflow horizontal.
+- Animações leves e intencionais, evitando distrações.
+
+O objetivo não é impressionar pelo volume, mas pela estrutura.
+
+---
+
+## Execução Local
+
+Não há etapas de build ou dependências.
+
+Basta abrir o arquivo `index.html` diretamente no navegador.
+
+---
+
+## Status do Projeto
+
+- Identidade visual consolidada
+- Estrutura do site finalizada
+- Responsividade ajustada para desktop e mobile
+- Base pronta para refinamento de conteúdo e SEO
+
+---
+
+## Licença
+
+Este projeto é de uso institucional da Hyperion.  
+Consulte antes de reutilizar partes do design ou identidade visual.
+
+---
+
+© Hyperion — Estruturas que sustentam crescimento.
