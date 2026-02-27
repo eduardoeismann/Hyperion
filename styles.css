@@ -212,7 +212,7 @@ body {
   margin-bottom: 14px;
 }
 
-h1, h2 {
+h1, h2, h3 {
   margin: 0 0 14px 0;
   color: var(--sand);
   letter-spacing: 0.02em;
@@ -296,7 +296,7 @@ p {
 }
 
 /* Fonts */
-h1, h2, .kicker, .menu a, .tagline, .footer-content, .font-cinzel {
+h1, h2, h3, .kicker, .menu a, .tagline, .footer-content, .font-cinzel {
   font-family: 'Cinzel', serif;
 }
 
@@ -314,10 +314,10 @@ p {
   .panel.is-active { animation: none; }
 }
 
-/* ✅ MOBILE ONLY: menu 100% visível sem arrastar */
+/* mobile first, visivel e sem arrastar */
 @media (max-width: 640px) {
 
-  /* menu vira 2 linhas e NÃO rola pro lado */
+  /* menu vira 2 linhas e nao rola pro lado */
   .menu {
     height: auto;
     padding: 10px 12px;
@@ -370,4 +370,13 @@ p {
 .contact-icon {
   width: 33px;
   height: 33px;
+}
+
+.our-work {
+  width: 30%;
+  height: 30%;
+}
+
+ul {
+  color: var(--sand)
 }
