@@ -366,3 +366,8 @@ p {
 .text-space {
   margin-top: 20px;
 }
+
+.contact-icon {
+  width: 33px;
+  height: 33px;
+}
