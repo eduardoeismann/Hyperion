@@ -73,3 +73,84 @@ window.addEventListener("keydown", (e) => {
     setActive(links[prev].dataset.target);
   }
 });
+
+(function enableSwipeNavMobileOnly() {
+  const mq = window.matchMedia("(max-width: 640px)");
+  const isCoarse = () =>
+    (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) ||
+    (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+
+  const stageEl = document.querySelector(".stage") || document.body;
+
+  let startX = 0;
+  let startY = 0;
+  let startT = 0;
+
+  const MIN_DIST_X = 60;
+  const MAX_DIST_Y = 80;
+  const MAX_TIME = 650;
+  const AXIS_RATIO = 1.2;
+
+  const currentIndex = () => links.findIndex(a => a.getAttribute("aria-current") === "page");
+
+  const goNext = () => {
+    const i = currentIndex();
+    if (i === -1) return;
+    const next = Math.min(i + 1, links.length - 1);
+    if (next !== i) setActive(links[next].dataset.target);
+  };
+
+  const goPrev = () => {
+    const i = currentIndex();
+    if (i === -1) return;
+    const prev = Math.max(i - 1, 0);
+    if (prev !== i) setActive(links[prev].dataset.target);
+  };
+
+  const shouldEnable = () => mq.matches && isCoarse();
+
+  const onTouchStart = (e) => {
+    if (!shouldEnable()) return;
+    if (!e.touches || e.touches.length !== 1) return;
+
+    const t = e.target;
+    if (t && t.closest && t.closest("a, button, input, textarea, select, label")) return;
+
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    startT = performance.now();
+  };
+
+  const onTouchEnd = (e) => {
+    if (!shouldEnable()) return;
+    if (!startT) return;
+
+    const dt = performance.now() - startT;
+    startT = 0;
+    if (!e.changedTouches || e.changedTouches.length !== 1) return;
+    if (dt > MAX_TIME) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+
+    const dx = endX - startX;
+    const dy = endY - startY;
+
+    const adx = Math.abs(dx);
+    const ady = Math.abs(dy);
+
+    if (adx < MIN_DIST_X) return;
+    if (ady > MAX_DIST_Y) return;
+    if (adx < ady * AXIS_RATIO) return;
+
+    if (dx < 0) {
+      goNext();
+    } else {
+      goPrev();
+    }
+
+  };
+
+  stageEl.addEventListener("touchstart", onTouchStart, { passive: true });
+  stageEl.addEventListener("touchend", onTouchEnd, { passive: true });
+})();

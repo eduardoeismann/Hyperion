@@ -8,7 +8,6 @@
   --text: var(--sand);
 }
 
-/* trava qualquer "vazamento" horizontal */
 html, body {
   height: 100%;
   overflow-x: hidden;
@@ -108,12 +107,12 @@ body {
 
   backdrop-filter: blur(6px);
 
-  /* IMPORTANTE: remove o "menu rolável" no Desktop/base */
+  /* IMPORTANT: remove "scrollwable menu" on desktop/base */
   overflow: hidden;
   white-space: normal;
 }
 
-/* linha dourada abaixo do menu */
+/* golden line down the menu */
 .menu::after {
   content: "";
   position: absolute;
@@ -147,7 +146,7 @@ body {
   background: rgba(31, 92, 69, 0.75);
 }
 
-/* ícone home */
+/* home icon */
 .menu-logo {
   padding: 6px 10px;
   display: flex;
@@ -180,11 +179,7 @@ body {
   min-height: auto;
   display: none;
   align-content: start;
-
-  /* seu ajuste que funcionou */
   padding-top: 7vh;
-
-  /* garante respiro lateral sempre */
   padding-inline: clamp(18px, 5vw, 28px);
 }
 
@@ -264,11 +259,9 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* você já usa isso para não "atrapalhar" cliques */
   pointer-events: none;
 
-  /* evita footer colar na borda em telas estreitas */
+  /* adjustment in footer to prevent touch borders */
   padding-inline: clamp(16px, 5vw, 28px);
 }
 
@@ -306,7 +299,7 @@ p {
 
 .title-gold { color: var(--gold); }
 
-/* Acessibilidade */
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .logo, .tagline { transition: none; transform: none; opacity: 1; }
   .is-exiting .logo, .is-exiting .tagline { transition: none; }
@@ -314,10 +307,10 @@ p {
   .panel.is-active { animation: none; }
 }
 
-/* mobile first, visivel e sem arrastar */
+/* mobile first */
 @media (max-width: 640px) {
 
-  /* menu vira 2 linhas e nao rola pro lado */
+  /* break menu in lines to prevent swipe */
   .menu {
     height: auto;
     padding: 10px 12px;
@@ -335,7 +328,6 @@ p {
             mask-image: none;
   }
 
-  /* garante que os itens não “estiquem” além do viewport */
   .menu a {
     font-size: 11px;
     letter-spacing: 0.10em;
@@ -347,9 +339,13 @@ p {
     height: 22px;
   }
 
-  /* como o menu ficou mais alto, empurra o conteúdo */
   .stage {
     padding-top: 112px;
+
+    /* for swipe effect */
+    touch-action: pan-y;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
   .footer-content {
