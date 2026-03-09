@@ -31,6 +31,38 @@ body {
   z-index: 50;
 }
 
+/* WORKING IN THREE DOTS AREA, HERE! */
+.triangulo {
+  border: 1px solid #C6A75E;
+  clear: both;
+}
+
+.dot {
+  font-size: 33px;
+}
+
+.dot-1 {
+  margin-left: 70%;
+  margin-right: 30%;
+  transform: translateY(300px);
+  float: left;
+}
+
+.dot-2 {
+  margin-left: 30%;
+  margin-right: 70%;
+  transform: translateY(300px);
+  float: left;
+}
+
+.dot-3 {
+  margin-left: 50%;
+  margin-right: 50%;
+  /* transform: translateY(300px); */
+  float: left;
+}
+/* WORKING IN THREE DOTS AREA, HERE! */
+
 .wrap {
   width: min(900px, 92vw);
   text-align: center;
