@@ -374,5 +374,10 @@ p {
 }
 
 ul {
-  color: var(--sand)
+  color: var(--sand);
+  list-style-type: none;
+}
+
+.margin-description {
+  margin-left: 3%;
 }

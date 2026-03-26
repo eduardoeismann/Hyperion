@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 
-    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" href="../images/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
     <!-- splash -->
     <div class="splash" id="splash" aria-label="Hyperion - Entrada">
       <main class="wrap">
-        <img class="logo" src="images/Hyperion.png" alt="Hyperion" />
+        <img class="logo" src="../images/Hyperion.png" alt="Hyperion" />
         <div class="tagline">Estruturas que sustentam crescimento</div>
       </main>
     </div>
@@ -29,124 +29,61 @@
     <!-- main -->
     <div class="app" id="app" aria-label="Hyperion - Conteúdo">
       <nav class="menu" aria-label="Menu">
-        <a href="#home" data-target="home" class="menu-logo" aria-label="Home">
-          <img src="images/Hyperion_Trees.png" alt="Home" />
+        <a href="../index.html#home" class="menu-logo" aria-label="Home">
+          <img src="../images/Hyperion_Trees.png" alt="Home" />
         </a>
-        <!-- <a href="#o-que-fazemos" data-target="o-que-fazemos">O que fazemos</a>
-        <a href="#como-trabalhamos" data-target="como-trabalhamos">Como trabalhamos</a>
-        <a href="#contato" data-target="contato">Contato</a> -->
+        <a href="../index.html#contato">Contato</a>
       </nav>
 
       <div class="stage">
-        <!-- bloco 1 -->
+        
         <section class="panel is-active" id="home" data-panel>
           <div>
             <div class="kicker">Hyperion</div>
             <h1 class="title-gold">
-              Escalar é consequência<br/>Estrutura é decisão
+              Make Space
             </h1>
             <p class="text-space">
-              A Hyperion é uma consultoria especializada em 
-              arquitetura de sistemas, engenharia de software e 
-              sustentação de longo prazo.
+              <u>IMPORTANTE:</u> Alguns de nossos clientes exigem confidencialidade 
+              em relação ao objetivo do projeto ou mesmo tecnologias 
+              específicas utilizadas.<br/>
+              Neste projeto foi autorizado apenas a divuldação de algumas das tecnologias utilizadas.
             </p>
             <p class="text-space">
-              Decisões técnicas profundas, execução limpa e foco 
-              absoluto no que realmente importa, construir bases 
-              que não quebram quando a sua empresa cresce.
-            </p>
-          </div>
-        </section>
-
-        <!-- bloco 2 -->
-        <section class="panel" id="o-que-fazemos" data-panel>
-          <div>
-            <div class="kicker">Posicionamento</div>
-            <h2 class="title-gold">Estruturas que sustentam crescimento</h2>
-            <p class="text-space">
-              Sistemas frágeis não acompanham ambição real. <br/>
-              Crescer sem fundação sólida gera custos que ninguém 
-              planeja e limitações que aparecem exatamente quando 
-              mais importa.
-            </p>
-
-            <p class="text-space">
-              <span class="title-gold">Estrutura não é detalhe técnico, é o alicerce estratégico. </span>
-              Projetamos e refinamos arquiteturas que evoluem com 
-              segurança, absorvem mudanças e resistem ao teste do 
-              tempo. Nosso foco é eliminar fragilidades, reduzir 
-              retrabalho e evitar as decisões que geram juros 
-              técnicos silenciosos.
-            </p>
-          </div>
-        </section>
-
-        <!-- bloco 3 -->
-        <section class="panel" id="como-trabalhamos" data-panel>
-          <div>
-            <div class="kicker">Fit</div>
-            <h2 class="title-gold">Poucos projetos<br/>Envolvimento total</h2>
-            <p class="text-space">
-              Trabalhamos com empresas e líderes que entendem uma coisa simples:<br/>
-              Escala de verdade não é aumentar volume, é tomar 
-              as decisões técnicas certas no momento certo.
-            </p>
-
-            <p class="text-space">
-              Para times que levam estrutura a sério, entregamos:
               <ul>
-                <li>Contexto profundo do negócio</li>
-                <li>Decisões claras e fundamentadas</li>
-                <li>Execução disciplinada e sem atalhos</li>
+                <span class="title-gold">Backend</span>
+                <li class="margin-description">Arquitetura modular</li>
+                <li class="margin-description">Node (Versão não divulgada)</li>
+                <li class="margin-description">API REST</li>
+                <li class="margin-description">WebSocket</li>
+                <li class="margin-description">JWT Auth</li>
+              </ul>
+
+              <ul>
+                <span class="title-gold">Frontend</span>
+                <li class="margin-description">NextJS</li>
+                <li class="margin-description">HTML5 + CSS</li>
+                <li class="margin-description">WebRTC</li>
+              </ul>
+
+              <ul>
+                <span class="title-gold">Databases</span>
+                <li class="margin-description">PostgreSQL</li>
+                <li class="margin-description">MongoDB</li>
+                <li class="margin-description">ORM Prisma</li>
+                <li class="margin-description">Modelagem Híbrida</li>
+              </ul>
+
+              <ul>
+                <span class="title-gold">+ DevOps</span>
               </ul>
             </p>
-
-            <p class="text-space">
-              <h3 class="title-gold">Alguns de nossos Clientes</h3>
-              <a href="https://www.adrielleharmoniza.com.br/" target="_blank">
-                <img class="our-work" src="images/ourwork/MakeSpace.png" alt="Make Space">
-              </a>
-              <img class="our-work" src="images/ourwork/AFSE.png" alt="Clínica de Harmonização Facial AFS">
-            </p>
           </div>
-        </section>
-
-        <!-- bloco 4 -->
-        <section class="panel" id="contato" data-panel>
-          <div>
-            <div class="kicker">Contato</div>
-            <h2 class="title-gold">Vamos conversar.</h2>
-            <p class="text-space">
-              Contato direto, sem burocracia e sem intermediários.
-            </p>
-            <p class="text-space">
-              Me conte o contexto real da sua empresa, os desafios 
-              de arquitetura ou escalabilidade que você está 
-              enfrentando e o que precisa sustentar nos próximos anos.
-            </p>
-            <p class="text-space">
-              Respondo pessoalmente e com agilidade.
-            </p>
-            <p>
-              <a class="cta" href="mailto:contato@hyperionroot.com">contato@hyperionroot.com</a>
-            </p>
-          </div>
-
-          <h5 class="font-cinzel">HYPERION &nbsp • &nbsp Fundada por Eduardo Eismann &nbsp • &nbsp Consultor Independente</h5>
-          
-          <p>
-              <a class="cta" href="https://www.instagram.com/hyperionroot/" target="_blank">
-                <img class="contact-icon" src="images/icons/instagram.png" alt="Instagram">
-              </a>
-              <a class="cta" href="https://github.com/eduardoeismann" target="_blank">
-                <img class="contact-icon" src="images/icons/github.png" alt="GitHub">
-              </a>
-            </p>
         </section>
       </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="../scripts.js"></script>
 
     <footer class="footer">
       <div class="footer-line"></div>
