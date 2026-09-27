@@ -368,8 +368,46 @@ p {
   height: 33px;
 }
 
-.our-work {
+/* PROJETOS: quatro caixas idênticas, com logos normalizadas pelo conteúdo visível. */
+.project-logos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 24px;
+  width: min(760px, 100%);
+  margin: 20px 0 28px;
+}
+
+.project-logos a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
   height: 150px;
+  max-width: 100%;
+  text-decoration: none; /* Remove os traços azuis dos links inline. */
+  line-height: 0;
+}
+
+.project-logos .our-work {
+  display: block;
+  width: 150px;
+  height: 150px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .project-logos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .project-logos a,
+  .project-logos .our-work {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 .projects {
